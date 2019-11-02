@@ -1,0 +1,23 @@
+{
+  "name": "graafit",
+  "version": "0.0.1",
+  "description": "A graph theory visualization project",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Maija Kekkonen",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "sequelize": "^5.21.2",
+    "sqlite3": "^4.1.0",
+    "vis-network": "^6.3.1"
+  },
+  "devDependencies": {
+    "eslint": "^6.6.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2"
+  }
+}
