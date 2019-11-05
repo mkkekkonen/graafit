@@ -31,7 +31,7 @@ const Page = sequelize.define('page',
       autoIncrement: true,
     },
     name: {
-      type: Sequelize.STRING,
+      type: Sequelize.STRING, 
     },
     jsFile: {
       type: Sequelize.STRING,

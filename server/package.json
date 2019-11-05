@@ -4,6 +4,8 @@
   "description": "A graph theory visualization project",
   "main": "src/index.js",
   "scripts": {
+    "start": "node src/index.js",
+    "dev": "supervisor src/index.js",
     "test": "jest"
   },
   "author": "Maija Kekkonen",
@@ -18,6 +20,7 @@
   "devDependencies": {
     "eslint": "^6.6.0",
     "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-import-resolver-node": "^0.3.2",
     "eslint-plugin-import": "^2.18.2"
   }
 }

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Graph Theory</title>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap-reboot.css" />
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap-grid.css" />
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-2">
+          {{#each categories}}
+            <div class="accordion" id="acc{{id}}">{{name}}</div>
+          {{/each}}
+        </div>
+        <div class="col-sm-10">
+          {{{body}}}
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script src="/js/bootstrap.min.js"></script>
+</html>
