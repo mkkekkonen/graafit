@@ -10,9 +10,43 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-2">
-          {{#each categories}}
-            <div class="accordion" id="acc{{id}}">{{name}}</div>
-          {{/each}}
+          <div class="accordion" id="mainMenu">
+            {{#each categories}}
+              <div class="card">
+                <div class="card-header" id="{{headerId id}}">
+                  <h2 class="mb-0">
+                    <button
+                      class="btn btn-link"
+                      type="button"
+                      data-toggle="collapse"
+                      data-target="#{{submenuId id}}"
+                      aria-expanded="false"
+                      aria-controls="{{submenuId id}}"
+                    >
+                      {{name}}
+                    </button>
+                  </h2>
+                </div>
+
+                <div
+                  id="{{submenuId id}}"
+                  class="collapse"
+                  aria-labelledby="{{headerId id}}"
+                  data-parent="#mainMenu"
+                >
+                  {{#each ../pages}}
+                    {{#if (isChild id ../id)}}
+                      <div class="card-body">
+                        <a class="btn btn-link" href="#">
+                          {{name}}
+                        </a>
+                      </div>
+                    {{/if}}
+                  {{/each}}
+                </div>
+              </div>
+            {{/each}}
+          </div>
         </div>
         <div class="col-sm-10">
           {{{body}}}
@@ -21,5 +55,7 @@
     </div>
   </body>
 
-  <script src="/js/bootstrap.min.js"></script>
+  <script src="/js/jquery-3.4.1.js"></script>
+  <script src="/js/popper.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
 </html>

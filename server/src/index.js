@@ -10,7 +10,9 @@ const run = async () => {
 
   const handlebars = expressHandlebars.create({
     helpers: {
-      lol: () => 'lol',
+      headerId: id => `menuItem${id}`,
+      submenuId: id => `submenu${id}`,
+      isChild: (pageId, categoryId) => pageId === categoryId,
     },
   });
 
@@ -25,9 +27,11 @@ const run = async () => {
 
   app.get('/', async (req, res) => { 
     const categories = await Category.findAll();
-    res.render('home', { categories });
+    const pages = await Page.findAll();
+    res.render('home', { categories, pages });
   });
 
+  console.log('Listening on localhost:3000')
   app.listen(3000);
 
   // const pages = await Page.findAll();
