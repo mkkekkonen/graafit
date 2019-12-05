@@ -5,6 +5,14 @@ const env = process.env.NODE_ENV || 'development';
 
 const { Category, Page } = require('./models');
 
+const parseParam = param => `${param}`.toLowerCase().replace(/-/g, ' ');
+
+const getNavData = async () => {
+  const categories = await Category.findAll();
+  const pages = await Page.findAll();
+  return { categories, pages };
+};
+
 const run = async () => {
   const app = express();
 
@@ -13,6 +21,7 @@ const run = async () => {
       headerId: id => `menuItem${id}`,
       submenuId: id => `submenu${id}`,
       isChild: (pageId, categoryId) => pageId === categoryId,
+      toUrlFormat: name => `${name}`.toLowerCase().replace(/\s/g, '-'),
     },
   });
 
@@ -26,9 +35,25 @@ const run = async () => {
   app.set('views', viewDirectory);
 
   app.get('/', async (req, res) => { 
-    const categories = await Category.findAll();
-    const pages = await Page.findAll();
-    res.render('home', { categories, pages });
+    const navData = await getNavData();
+    res.render('home', { ...navData });
+  });
+
+  app.get('/:categoryName/:pageName', async (req, res) => {
+    const navData = await getNavData();
+    const { categoryName, pageName } = req.params;
+
+    const category = navData.categories
+      .find(category => `${category.name}`.toLowerCase() === parseParam(categoryName));
+    const page = navData.pages
+      .find(page => `${page.name}`.toLowerCase() === parseParam(pageName));
+
+    if (!category || !page) {
+      res.render('notFound', { ...navData });
+      return;
+    }
+
+    res.render('page', { ...navData, category, page });
   });
 
   console.log('Listening on localhost:3000')

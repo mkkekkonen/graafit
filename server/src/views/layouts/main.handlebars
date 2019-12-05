@@ -37,7 +37,7 @@
                   {{#each ../pages}}
                     {{#if (isChild id ../id)}}
                       <div class="card-body">
-                        <a class="btn btn-link" href="#">
+                        <a class="btn btn-link" href="/{{toUrlFormat ../name}}/{{toUrlFormat name}}">
                           {{name}}
                         </a>
                       </div>
