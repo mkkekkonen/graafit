@@ -1,3 +1,6 @@
+var fs = require('fs');
+var path = require('path');
+
 const express = require('express');
 const expressHandlebars = require('express-handlebars');
 
@@ -26,9 +29,11 @@ const run = async () => {
   });
 
   const assetDirectory = env === 'debug' ? 'server/assets' : 'assets';
+  const contentDirectory = env === 'debug' ? 'server/content' : 'content';
   const viewDirectory = env === 'debug' ? 'server/src/views' : 'src/views';
 
   app.use(express.static(assetDirectory));
+  app.use(express.static(contentDirectory))
 
   app.engine('handlebars', handlebars.engine); 
   app.set('view engine', 'handlebars');
@@ -53,7 +58,17 @@ const run = async () => {
       return;
     }
 
-    res.render('page', { ...navData, category, page });
+    fs.readFile(
+      path.resolve(__dirname, '..', 'content', 'md', page.templateFile),
+      (err, data) => {
+        if (err) {
+          res.render('error', { message: err.message });
+          return;
+        }
+
+        res.render('page', { ...navData, category, page, markdown: data.toString().replace(/\n/g, '\\n') });
+      }
+    )
   });
 
   console.log('Listening on localhost:3000')

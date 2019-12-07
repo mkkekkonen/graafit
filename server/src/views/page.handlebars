@@ -1,1 +1,12 @@
-<h1>{{category.name}} &mdash; {{page.name}}</h1>
+<div class="page-content">
+  <div id="md"></div>
+  <div id="canvasContainer"></div>
+</div>
+
+<script src="/graphs/{{page.jsFile}}"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.1/showdown.min.js"></script>
+<script>
+  var converter = new showdown.Converter();
+  document.getElementById('md').innerHTML = converter.makeHtml('{{markdown}}');
+</script>

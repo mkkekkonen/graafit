@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node src/index.js",
     "dev": "forever -w src/index.js",
-    "test": "jest"
+    "test": "jest",
+    "sass": "node-sass --watch sass -o assets/css"
   },
   "author": "Maija Kekkonen",
   "license": "MIT",
@@ -22,6 +23,7 @@
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-import-resolver-node": "^0.3.2",
     "eslint-plugin-import": "^2.18.2",
-    "forever": "^1.0.0"
+    "forever": "^1.0.0",
+    "node-sass": "^4.13.0"
   }
 }
