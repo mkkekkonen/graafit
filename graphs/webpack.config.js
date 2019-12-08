@@ -1,4 +1,5 @@
 var path = require('path');
+var webpack = require('webpack');
 
 var entryPoints = require('./entryPoints');
 
@@ -21,5 +22,21 @@ module.exports = {
         use: ['babel-loader']
       }
     ]
-  }
+  },
+
+  optimization: {
+    splitChunks: {
+      chunks: 'all'
+    }
+  },
+
+  plugins: [
+    new webpack.SourceMapDevToolPlugin({
+      filename: '[name].js.map',
+      exclude: [
+        'jquery-3.4.1.js',
+        'popper.min.js'
+      ]
+    })
+  ]
 };

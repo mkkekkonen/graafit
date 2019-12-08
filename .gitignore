@@ -1,4 +1,6 @@
 server/node_modules/
 server/assets/css/style.css
+server/content/graphs/*.js
+server/content/graphs/*.js.map
 graphs/node_modules/
 graphs/dist/

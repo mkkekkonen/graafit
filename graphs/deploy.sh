@@ -1,3 +1,4 @@
 #!/bin/bash
 
-cp ./dist/* ../server/content/js
+rm ../server/content/graphs/*
+cp ./dist/* ../server/content/graphs

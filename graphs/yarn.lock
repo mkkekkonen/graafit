@@ -3662,6 +3662,11 @@ v8-compile-cache@2.0.3:
   resolved "https://registry.yarnpkg.com/v8-compile-cache/-/v8-compile-cache-2.0.3.tgz#00f7494d2ae2b688cfe2899df6ed2c54bef91dbe"
   integrity sha512-CNmdbwQMBjwr9Gsmohvm0pbL954tJrNzf6gWL3K+QMQf00PF7ERGrEiLgjuU3mKreLC2MeGhUsNV9ybTbLgd3w==
 
+vis-network@^6.4.6:
+  version "6.4.6"
+  resolved "https://registry.yarnpkg.com/vis-network/-/vis-network-6.4.6.tgz#1f870a25dcc5e188b5bbc80f0c563abfeed42cfb"
+  integrity sha512-/I0qd13FU14wvxyfH1rlaZYn0pCchXt94SEJaemrd6jk+zabbeBGvexyvTOznRKVMgS0D6MLb1VSY33rvAmFdg==
+
 vm-browserify@^1.0.1:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/vm-browserify/-/vm-browserify-1.1.2.tgz#78641c488b8e6ca91a75f511e7a3b32a86e5dda0"
