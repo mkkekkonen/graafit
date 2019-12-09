@@ -10,7 +10,7 @@
   <body>
     <div class="container-fluid">
       <div class="row">
-        <div class="col-sm-2">
+        <div class="col-sm-2 nav-container">
           <div class="accordion" id="mainMenu">
             {{#each categories}}
               <div class="card">
@@ -31,7 +31,7 @@
 
                 <div
                   id="{{submenuId id}}"
-                  class="collapse"
+                  class="collapse {{#if (isCurrentCategory ../category id)}}show{{/if}}"
                   aria-labelledby="{{headerId id}}"
                   data-parent="#mainMenu"
                 >

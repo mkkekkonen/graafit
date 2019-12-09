@@ -4,5 +4,6 @@ var formulatePath = function(fileName) {
 
 module.exports = {
   '1_point': formulatePath('1_point'),
+  '1_line': formulatePath('1_line'),
   '2_distanceBetweenVertices': formulatePath('2_distanceBetweenVertices'),
 };

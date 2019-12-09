@@ -25,6 +25,7 @@ const run = async () => {
       submenuId: id => `submenu${id}`,
       isChild: (pageCategoryId, categoryId) => pageCategoryId === categoryId,
       toUrlFormat: name => `${name}`.toLowerCase().replace(/\s/g, '-'),
+      isCurrentCategory: (pageCategory, listCategoryId) => pageCategory && pageCategory.id === listCategoryId,
     },
   });
 
