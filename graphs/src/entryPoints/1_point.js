@@ -6,7 +6,7 @@ const run = () => {
   console.log('Creating nodes');
 
   const nodes = new DataSet([
-    { id: 1, label: '1' }
+    { id: 1, label: 'a' }
   ]);
 
   console.log('Creating edges');

@@ -3,6 +3,6 @@ var formulatePath = function(fileName) {
 };
 
 module.exports = {
-  point: formulatePath('point'),
-  distanceBetweenVertices: formulatePath('distanceBetweenVertices'),
+  '1_point': formulatePath('1_point'),
+  '2_distanceBetweenVertices': formulatePath('2_distanceBetweenVertices'),
 };

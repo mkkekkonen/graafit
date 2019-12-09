@@ -23,7 +23,7 @@ const run = async () => {
     helpers: {
       headerId: id => `menuItem${id}`,
       submenuId: id => `submenu${id}`,
-      isChild: (pageId, categoryId) => pageId === categoryId,
+      isChild: (pageCategoryId, categoryId) => pageCategoryId === categoryId,
       toUrlFormat: name => `${name}`.toLowerCase().replace(/\s/g, '-'),
     },
   });
@@ -59,10 +59,10 @@ const run = async () => {
     }
 
     fs.readFile(
-      path.resolve(__dirname, '..', 'content', 'md', page.templateFile),
+      path.resolve(__dirname, '..', 'content', 'md', `${category.id}_${page.templateFile}`),
       (err, data) => {
         if (err) {
-          res.render('error', { message: err.message });
+          res.render('error', { ...navData, message: err.message });
           return;
         }
 
@@ -71,11 +71,13 @@ const run = async () => {
     )
   });
 
+  app.get('/sources/', async (req, res) => {
+    const navData = await getNavData();
+    res.render('sources', { ...navData });
+  });
+
   console.log('Listening on localhost:3000')
   app.listen(3000);
-
-  // const pages = await Page.findAll();
-  // console.log(pages);
 };
 
 run();
