@@ -26,6 +26,7 @@ const run = async () => {
       isChild: (pageCategoryId, categoryId) => pageCategoryId === categoryId,
       toUrlFormat: name => `${name}`.toLowerCase().replace(/\s/g, '-'),
       isCurrentCategory: (pageCategory, listCategoryId) => pageCategory && pageCategory.id === listCategoryId,
+      urlBase: () => env === 'production' ? process.env.URL_BASE : '',
     },
   });
 
@@ -77,8 +78,9 @@ const run = async () => {
     res.render('sources', { ...navData });
   });
 
-  console.log('Listening on localhost:3000')
-  app.listen(process.env.PORT || 3000);
+  const port = process.env.PORT || 3001;
+  console.log(`Listening on localhost:${port}`)
+  app.listen(port);
 };
 
 run();

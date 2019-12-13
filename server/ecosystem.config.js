@@ -6,7 +6,12 @@ module.exports = {
       watch: true,
       env: {
         PORT: 7000,
-        NODE_ENV: 'production'
+        NODE_ENV: 'production',
+        URL_BASE: '/graafit',
+      },
+      env_dev: {
+        PORT: 3005,
+        NODE_ENV: 'development',
       }
     }
   ]

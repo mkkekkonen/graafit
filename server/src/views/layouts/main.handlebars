@@ -2,10 +2,10 @@
 <html>
   <head>
     <title>Graph Theory</title>
-    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
-    <link rel="stylesheet" type="text/css" href="/css/bootstrap-reboot.css" />
-    <link rel="stylesheet" type="text/css" href="/css/bootstrap-grid.css" />
-    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="{{urlBase}}/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="{{urlBase}}/css/bootstrap-reboot.css" />
+    <link rel="stylesheet" type="text/css" href="{{urlBase}}/css/bootstrap-grid.css" />
+    <link rel="stylesheet" type="text/css" href="{{urlBase}}/css/style.css" />
   </head>
   <body>
     <div class="container-fluid">
@@ -38,7 +38,7 @@
                   {{#each ../pages}}
                     {{#if (isChild categoryId ../id)}}
                       <div class="card-body">
-                        <a class="btn btn-link page-link" href="/{{toUrlFormat ../name}}/{{toUrlFormat name}}">
+                        <a class="btn btn-link page-link" href="{{urlBase}}/{{toUrlFormat ../name}}/{{toUrlFormat name}}">
                           {{name}}
                         </a>
                       </div>
@@ -50,7 +50,7 @@
 
             <div class="card">
               <div class="card-body">
-                <a class="btn btn-link" href="/sources/">Sources</a>
+                <a class="btn btn-link" href="{{urlBase}}/sources/">Sources</a>
               </div>
             </div>
           </div>
@@ -62,7 +62,7 @@
     </div>
   </body>
 
-  <script src="/js/jquery-3.4.1.js"></script>
-  <script src="/js/popper.min.js"></script>
-  <script src="/js/bootstrap.js"></script>
+  <script src="{{urlBase}}/js/jquery-3.4.1.js"></script>
+  <script src="{{urlBase}}/js/popper.min.js"></script>
+  <script src="{{urlBase}}/js/bootstrap.js"></script>
 </html>
