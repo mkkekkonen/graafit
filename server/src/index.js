@@ -67,7 +67,7 @@ const run = async () => {
           return;
         }
 
-        res.render('page', { ...navData, category, page, markdown: data.toString().replace(/\n/g, '\\n') });
+        res.render('page', { ...navData, category, page, markdown: data.toString().replace(/\n/g, '\\n').replace(/\r/g, '') });
       }
     )
   });
@@ -78,7 +78,7 @@ const run = async () => {
   });
 
   console.log('Listening on localhost:3000')
-  app.listen(3000);
+  app.listen(process.env.PORT || 3000);
 };
 
 run();
