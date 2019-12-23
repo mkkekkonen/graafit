@@ -32,16 +32,6 @@ export const addNode = (nodes) => {
   }
 };
 
-export const addAddEventListener = nodes => {
-  const addNodeButton = document.getElementById('addNode');
-
-  if (addNodeButton) {
-    addNodeButton.addEventListener('click', () => {
-      addNode(nodes);
-    });
-  }
-};
-
 export const alphabet = 'abcdefghijklmnopqrstuvwxyz';
 
 export { constants };
