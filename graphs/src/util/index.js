@@ -18,4 +18,30 @@ export const initializeNetwork = (nodes, edges, elementId = constants.defaultEle
   return new Network(container, data, { ...defaultOptions, ...options });
 };
 
+export const addNode = (nodes) => {
+  const allNodes = nodes.get();
+
+  if (allNodes) {
+    const greatestValue = allNodes[allNodes.length - 1];
+    const nextCharIndex = alphabet.indexOf(greatestValue.label) + 1;
+    const nextChar = nextCharIndex < alphabet.length && alphabet[nextCharIndex];
+
+    if (nextChar) {
+      nodes.add({ id: greatestValue.id + 1, label: nextChar });
+    }
+  }
+};
+
+export const addAddEventListener = nodes => {
+  const addNodeButton = document.getElementById('addNode');
+
+  if (addNodeButton) {
+    addNodeButton.addEventListener('click', () => {
+      addNode(nodes);
+    });
+  }
+};
+
+export const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+
 export { constants };

@@ -9,11 +9,11 @@
   </div>
 </div>
 
-<script src="{{urlBase}}/graphs/vendors.js"></script>
-<script src="{{urlBase}}/graphs/{{category.id}}_{{page.jsFile}}"></script>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.1/showdown.min.js"></script>
 <script>
   var converter = new showdown.Converter();
-  document.getElementById('md').innerHTML = converter.makeHtml('{{markdown}}');
+  document.getElementById('md').innerHTML = converter.makeHtml('{{{markdown}}}');
 </script>
+
+<script src="{{urlBase}}/graphs/vendors.js"></script>
+<script src="{{urlBase}}/graphs/{{category.id}}_{{page.jsFile}}"></script>
