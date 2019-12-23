@@ -1,8 +1,11 @@
-var formulatePath = function(fileName) {
+const fs = require('fs');
+const path = require('path');
+
+const formulatePath = fileName => {
   return './src/entryPoints/' + fileName + '.js';
 };
 
-var generateEntryPoints = entryPoints => {
+const generateEntryPoints = entryPoints => {
   const result = {};
   entryPoints.forEach(entryPoint => {
     result[entryPoint] = formulatePath(entryPoint);
@@ -10,11 +13,10 @@ var generateEntryPoints = entryPoints => {
   return result;
 }
 
-var entryPointNames = [
-  '1_point',
-  '1_line',
-  '1_vertexEdge',
-  '2_distanceBetweenVertices',
-];
+const getEntryPointNames = () => fs.readdirSync(path.resolve('.', 'src', 'entryPoints'))
+  .map(fileName => {
+    const [nameWithoutExtension] = fileName.split('.');
+    return nameWithoutExtension;
+  });
 
-module.exports = generateEntryPoints(entryPointNames);
+module.exports = generateEntryPoints(getEntryPointNames());
