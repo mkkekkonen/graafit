@@ -18,7 +18,7 @@ export const initializeNetwork = (nodes, edges, elementId = constants.defaultEle
   return new Network(container, data, { ...defaultOptions, ...options });
 };
 
-export const addNode = (nodes) => {
+export const addNode = nodes => {
   const allNodes = nodes.get();
 
   if (allNodes) {
@@ -31,6 +31,8 @@ export const addNode = (nodes) => {
     }
   }
 };
+
+export const addEdge = (edges, from, to) => edges.add({ from, to });
 
 export const alphabet = 'abcdefghijklmnopqrstuvwxyz';
 

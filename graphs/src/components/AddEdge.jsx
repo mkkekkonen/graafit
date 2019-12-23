@@ -26,8 +26,9 @@ export class AddEdge extends React.Component {
             From:
             <select
               id="from"
-              onChange={value => this.setState({ from: value })}
+              onChange={event => this.setState({ from: event.target.value })}
             >
+              <option value={null}>Valitse...</option>
               {nodes.map(node => <option value={node.id}>{node.label}</option>)}
             </select>
           </label>
@@ -36,8 +37,9 @@ export class AddEdge extends React.Component {
             To:
             <select
               id="to"
-              onChange={value => this.setState({ to: value })}
+              onChange={event => this.setState({ to: event.target.value })}
             >
+              <option value={null}>Valitse...</option>
               {nodes.map(node => <option value={node.id}>{node.label}</option>)}
             </select>
           </label>

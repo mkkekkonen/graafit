@@ -5,15 +5,17 @@ import { AddEdge, AddNode } from '../components';
 
 class Component extends React.Component {
   render() {
-    const { nodes, addNode } = this.props;
+    const { nodes, addNode, addEdge } = this.props;
 
     return (
       <div>
         <AddNode
           addNodeCallback={addNode}
         />
-        {/* <AddEdge
-        /> */}
+        <AddEdge
+          nodes={nodes}
+          addEdgeCallback={addEdge}
+        />
       </div>
     );
   }

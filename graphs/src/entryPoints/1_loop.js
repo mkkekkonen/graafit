@@ -1,6 +1,6 @@
 import { DataSet } from 'vis-network';
 
-import { initializeNetwork, addAddEventListener, addNode } from '../util';
+import { initializeNetwork, addAddEventListener, addNode, addEdge } from '../util';
 
 import { render } from '../react/1_loop';
 
@@ -14,8 +14,16 @@ const edges = new DataSet([
 
 initializeNetwork(nodes, edges);
 
-const _addNode = () => addNode(nodes);
+const _addNode = () => {
+  addNode(nodes);
+  _render();
+};
+const _addEdge = (from, to) => addEdge(edges, from, to);
+
+const _render = () => {
+  render(nodes, _addNode, _addEdge);
+};
 
 $(document).ready(() => {
-  render(nodes, _addNode);
+  _render();
 });
