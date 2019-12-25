@@ -5,9 +5,16 @@ export class AddNode extends React.Component {
     const { addNodeCallback } = this.props;
 
     return (
-      <div>
-        <button onClick={addNodeCallback}>Add node</button>
-      </div>
+      <fieldset>
+        <legend>Add Node</legend>
+
+        <button
+          class="btn btn-dark"
+          onClick={addNodeCallback}
+        >
+          Add node
+        </button>
+      </fieldset>
     );
   }
 }

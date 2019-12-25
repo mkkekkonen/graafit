@@ -34,6 +34,17 @@ export const addNode = nodes => {
 
 export const addEdge = (edges, from, to) => edges.add({ from, to });
 
+export const createNodes = count => {
+  const nodes = [];
+
+  for (let i = 0; i < count; i++) {
+    const node = { id: i + 1, label: alphabet[i] };
+    nodes.push(node);
+  }
+
+  return nodes;
+};
+
 export const alphabet = 'abcdefghijklmnopqrstuvwxyz';
 
 export { constants };

@@ -20,38 +20,45 @@ export class AddEdge extends React.Component {
     const { from, to } = this.state;
 
     return (
-      <div>
-        <Container>
+      <fieldset>
+        <legend>Add Edge</legend>
+
+        <div class="form-group">
           <label for="from">
             From:
-            <select
-              id="from"
-              onChange={event => this.setState({ from: event.target.value })}
-            >
-              <option value={null}>Valitse...</option>
-              {nodes.map(node => <option value={node.id}>{node.label}</option>)}
-            </select>
           </label>
+          <select
+            id="from"
+            class="form-control"
+            onChange={event => this.setState({ from: event.target.value })}
+          >
+            <option value={null}>Valitse...</option>
+            {nodes.map(node => <option value={node.id}>{node.label}</option>)}
+          </select>
+        </div>
 
+        <div class="form-group">
           <label for="to">
             To:
-            <select
-              id="to"
-              onChange={event => this.setState({ to: event.target.value })}
-            >
-              <option value={null}>Valitse...</option>
-              {nodes.map(node => <option value={node.id}>{node.label}</option>)}
-            </select>
           </label>
-        </Container>
+          <select
+            id="to"
+            class="form-control"
+            onChange={event => this.setState({ to: event.target.value })}
+          >
+            <option value={null}>Valitse...</option>
+            {nodes.map(node => <option value={node.id}>{node.label}</option>)}
+          </select>
+        </div>
 
         <button
+          class="btn btn-dark"
           disabled={!from && !to}
           onClick={() => addEdgeCallback(from, to)}
         >
           Add edge
         </button>
-      </div>
+      </fieldset>
     );
   }
 }
