@@ -24,6 +24,6 @@
     "eslint-import-resolver-node": "^0.3.2",
     "eslint-plugin-import": "^2.18.2",
     "forever": "^1.0.0",
-    "node-sass": "^4.13.0"
+    "node-sass": "^7.0.0"
   }
 }
